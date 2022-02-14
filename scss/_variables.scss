@@ -1,0 +1,54 @@
+//Colors
+
+
+$mainColor: #0b0d0e;
+$specialColor: #71CEF5;
+$lightBackground: lighten($mainColor, 3%);
+$secondaryTextColor: #768a92;
+
+//Fonts
+$specialFont: 'Unica One', cursive;
+$primaryFont: 'Poppins', sans-serif;
+
+
+
+
+
+
+
+
+/// mixins
+
+
+@mixin specialH2($text){
+    >h2{
+        position: relative;
+        margin-left: 25rem;
+        margin-bottom: 5rem;
+        // z-index: 1;
+        &::before{
+            content: $text;
+            position: absolute;
+            top: 1rem;
+            left: 12.125rem;
+            color: $mainColor;
+            transform: scale(8);
+            z-index: -2;
+            @media only screen and (max-width: 1600px){
+                transform: scale(4);
+                left: 50%;
+                margin-left: -3.5rem;
+            }
+            @media only screen and (max-width: 825px){
+                transform: scale(2.5);
+            }
+        }
+        @media only screen and (max-width: 1600px){
+            // left: auto;
+            margin: 0 auto;
+            padding: 2rem 0;
+            text-align: center;
+        }
+    }
+}
+

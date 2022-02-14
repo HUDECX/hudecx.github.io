@@ -1,0 +1,109 @@
+
+
+@media only screen and (max-width: 1600px){
+    .bunky{
+        text-align: center;
+    }
+    .job{
+        margin-bottom: 2rem;
+    }
+    #resume{
+        h2::before{
+            transform: scale(4);
+            left: auto;
+            margin: -1rem -9.75rem;
+        }
+    }
+    form{
+        label{
+            flex-flow: column;
+        }
+        input{
+            width: 100%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1320px ){
+    .projectRight{
+        text-align: center;
+        justify-content: center;
+        .textBlock{
+            width: 100%;
+        }
+        .img{
+            margin: 0;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1007px){
+    .source{
+        p{
+            margin: 1rem auto;
+            text-align: center;
+            padding: 0;
+            padding-bottom: 2rem;
+            border: none;
+        }
+        &:not(:last-child){
+            border-bottom: 1px solid $mainColor;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 825px){
+    .mainNav{
+        flex-wrap: wrap;
+        height: fit-content;
+        padding: 0 2rem;
+        ul{
+            display: none;
+            margin-top: 1rem;
+            width: 100%;
+            text-align: center;
+            flex-flow: column;
+            a{
+                padding: 0;
+            }
+            li{
+                margin: 1rem;
+            }
+        }
+        #hamburger{
+            display: block;
+        }
+    }
+    #titleCard{
+        .myPhoto{
+            display: block;
+            position: static;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    .titleCardCenter{
+        h1{
+            text-align: center;
+            position: relative;
+            top: -30vh;
+            margin: -8rem auto;
+        }
+        position: relative;
+        width: 100%;
+        left: 0;
+        .titleText{
+            text-align: center;
+            margin: 2rem;
+            p{
+                width: 100%;
+            }
+        }
+    }
+    form{
+        width: 80%;
+    }
+}
