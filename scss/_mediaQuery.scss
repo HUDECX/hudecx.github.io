@@ -9,9 +9,7 @@
     }
     #resume{
         h2::before{
-            transform: scale(4);
-            left: auto;
-            margin: -1rem -9.75rem;
+        margin-left: -3rem;
         }
     }
     form{
@@ -75,6 +73,10 @@
         }
         #hamburger{
             display: block;
+        }
+        a::before,
+        a::after{
+            display: none;
         }
     }
     #titleCard{

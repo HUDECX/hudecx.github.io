@@ -1,5 +1,6 @@
 @import "_variables";
 @import "_animations";
+@import "_svg";
 
 
 
@@ -30,6 +31,10 @@ h1,h2,h3{
     margin: 0;
 }
 
+button{
+    cursor: pointer;
+}
+
 .specialText{
     position: relative;
     font-size: 1.7rem;
@@ -38,6 +43,12 @@ h1,h2,h3{
     font-weight: bold;
 }
 
+.lightText{
+    color: $secondaryTextColor;
+}
+
+
+
 
 
 ////////////// NAVIGACIA /////////////////////////
@@ -45,7 +56,7 @@ h1,h2,h3{
 
 .mainNav{
     z-index: 999;
-    position: fixed;
+    position: absolute;
     font-family: $specialFont;
     background: $lightBackground;
     width: 96%;
@@ -145,26 +156,19 @@ h1,h2,h3{
     position: relative;
     padding: 1rem;
     width: 50rem;
-    height: 20.625;
+    height: 20.625rem;
     z-index: 99;
     p{
-        padding: 2rem;
+        width: 35rem;
+        margin: 0
     }
-    // h2.specialText::before{
-    //     content: "ABOUT";
-    //     position: absolute;
-    //     top: 4rem;
-    //     right: 35.125rem;
-    //     color: $lightBackground;
-    //     transform: scale(8);
-    //     z-index: -1;
-    // }
     @include specialH2("ABOUT");
     .specialText::before{
         color: $lightBackground;
     }
     h2{
         margin-left: 0;
+        margin-bottom: 1rem;
     }
 }
 
@@ -188,21 +192,13 @@ h1,h2,h3{
     li{
         z-index: 99;
     }
-    // h2.specialText::before{
-    //     content: "CONTACT";
-    //     position: absolute;
-    //     top: 4rem;
-    //     right: 28.125rem;
-    //     color: $lightBackground;
-    //     transform: scale(8);
-    //     z-index: -1;
-    // }
     @include specialH2("CONTACT");
     .specialText::before{
         color: $lightBackground;
     }
     h2{
         margin-left: 0;
+        margin-bottom: 1rem;
     }
 }
 
@@ -215,21 +211,34 @@ h1,h2,h3{
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem;
+    // &>h2{
+    //     margin-left: -4rem;
+    //     text-align: center;
+    //     width: 100%;
+    //     margin-bottom: 3rem;
+    //     text-indent: 4rem;
+    //     &::before{
+    //     content: "RESUME";
+    //     position: absolute;
+    //     top: 3rem;
+    //     left: 50%;
+    //     margin-left: -18.75rem;
+    //     color: $lightBackground;
+    //     transform: scale(8);
+    //     z-index: -5;
+    //     }
+    // }
+    @include specialH2("RESUME");
     &>h2{
-        margin-left: -4rem;
-        text-align: center;
         width: 100%;
+        text-align: center;
+        margin: 0;
         margin-bottom: 3rem;
-        text-indent: 4rem;
         &::before{
-        content: "RESUME";
-        position: absolute;
-        top: 3rem;
-        left: 50%;
-        margin-left: -18.75rem;
-        color: $lightBackground;
-        transform: scale(8);
-        z-index: -5;
+            color: $lightBackground;
+            top: 0;
+            left: 50%;
+            margin-left: -5rem;
         }
     }
 }
@@ -247,6 +256,7 @@ h1,h2,h3{
 
 
 #technologies{
+    display: none;
     position: relative;
     background-color: $lightBackground;
     padding-bottom: 5rem;
@@ -371,38 +381,24 @@ h1,h2,h3{
             background-color: transparentize($mainColor, .6);
         }
     }
-    // &::before{
-    //     z-index: 2;
-    //     content: "";
-    //     position: absolute;
-    //     left: -25rem;
-    //     top: 50%;
-    //     height: 0.125rem;
-    //     width: 25rem;
-    //     background-color: $specialColor;
-    // }
-    // &::after{
-    //     z-index: 2;
-    //     content: "";
-    //     position: absolute;
-    //     right: -17.9375rem;
-    //     top: 50%;
-    //     height: 0.125rem;
-    //     width: 17.9375rem;
-    //     background-color: $specialColor;
-    // }
 }
 
 
 .job{
+    position: relative;
     border: 1px solid $lightBackground;
     width: 30rem;
+    height: 17.25rem;
     text-align: center;
     padding: 2rem;
     h3{
+        position: absolute;
         font-size: 0.9rem;
         font-weight: normal;
-        color: $secondaryTextColor;
+        bottom: 2rem;
+        width: 17rem;
+        left: 50%;
+        margin-left: -8.5rem;
     }
     background-color: $mainColor;
 }
@@ -443,6 +439,22 @@ form{
 
 
 
+footer aside{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    padding: 0;
+    height: fit-content;
+    background-color: $lightBackground;
+    color: $mainColor;
+    p{
+        margin: 0;
+        padding: 0 1rem;
+    }
+}
+
+
+
 
 
 
@@ -450,6 +462,7 @@ form{
 
 /////////////// BUTTONS //////////////////////////
 .button{
+    position: relative;
     border: 1px solid white;
     padding: 0.5rem;
     border-radius: 0.3125rem 1.25rem 0.3125rem 1.25rem;
@@ -496,66 +509,7 @@ form{
 
 
 
-.custom-shape-divider-bottom-1644612624 {
-    z-index: -99;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
 
-.custom-shape-divider-bottom-1644612624 svg {
-    z-index: -99;
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3008px);
-    height: 189px;
-}
-
-.custom-shape-divider-bottom-1644612624 .shape-fill {
-    fill: $lightBackground;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.custom-shape-divider-top-1644618927 {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-.custom-shape-divider-top-1644618927 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3008px);
-    height: 500px;
-}
-
-.custom-shape-divider-top-1644618927 .shape-fill {
-    fill: $lightBackground;
-}
 
 
 

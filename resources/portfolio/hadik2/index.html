@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake game</title>
+</head>
+<body>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            background: #03011f;
+            margin-top: 10rem;
+        }
+        canvas{
+            /* margin: 10rem 0 auto; */
+            border-top: #F0B200 1px solid;
+            border-left: #F0B200 1px solid;
+        }
+        h1, h2{
+            color: #F0B200;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+    </style>
+    <canvas width="600" height="600" ></canvas>
+    <h1>Score: 0</h1>
+    <h2></h2>
+    
+
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const fps = 15;
+
+        let game_running = true;
+
+        const tile_size = 50;
+        const tiles_on_x = canvas.width/tile_size;
+        const tiles_on_y = canvas.height/tile_size;
+
+        let snake_position_x = 0;
+        let snake_position_y = canvas.height/2;
+        let direction = "right";
+
+        let tail = [];
+
+        let score = 0;
+
+        let food_x = 0;
+        let food_y = 0;
+        random_food()
+
+        document.addEventListener("keydown", key)
+        const napis = document.querySelector("h1")
+        const pod_nadis = document.querySelector("h2")
+
+
+        // functions
+
+        function rectangle(color,x,y,width,height){
+            ctx.fillStyle = color
+            ctx.fillRect(x,y,width,height);
+        }
+
+        function draw() {
+
+            /////////
+            // pozadie
+            //////////////////////////////////
+            rectangle("#F0B200",0,0,canvas.width,canvas.height)
+
+
+            /////////
+            // kachlicky
+            //////////////////////////////////
+            kachlicky()
+
+            //////
+            // tail
+            //////////////////////////////////
+
+            tail.forEach(part => {
+                rectangle("#333",part.x,part.y,tile_size,tile_size);
+            })
+            
+            
+            //////
+            // zradlo
+            //////////////////////////////////
+            
+            spawn_food()
+            
+           
+            
+            
+            //////
+            // hlavicky hada
+            //////////////////////////////////
+            rectangle("white",snake_position_x,snake_position_y,tile_size,tile_size)
+           
+        }
+
+        function kachlicky() {
+            for (let i = 0; i < tiles_on_x; i++) {
+                for (let j = 0; j < tiles_on_y; j++) {
+                    rectangle("#06023b",i*tile_size,j*tile_size,tile_size-1,tile_size-1)
+                }
+            }
+        }
+        
+        function spawn_food() {
+
+            //pozrie aby sa food nespawnol do tail
+            
+
+
+            //ked zozere
+            if(snake_position_x == food_x && snake_position_y == food_y){
+                napis.innerHTML = `Score: ${++score}`;
+                random_food()
+            }
+
+            rectangle("#F0B200",food_x,food_y,tile_size,tile_size);
+        }
+
+
+        function random_food() {
+            food_x = Math.floor(Math.random() * tiles_on_x) * tile_size;
+            food_y = Math.floor(Math.random() * tiles_on_y) * tile_size;
+        }
+
+
+        function move() {
+            
+
+            /////
+            ///////
+            // crash
+            //////////////////////////////////
+
+            tail.forEach(part => {
+                if(snake_position_x == part.x && snake_position_y == part.y){
+                    napis.innerHTML = `GAME OVER <br> YOUR SCORE WAS ${score}`;
+                    pod_nadis.innerHTML = "Press enter to continue"
+                    game_running = false;
+                }
+            })
+            
+
+
+            /////
+            ///////
+            // tail
+            //////////////////////////////////
+            if(score > 0){
+
+                tail.push({x: snake_position_x, y: snake_position_y});
+                tail = tail.slice(-score);
+
+            }
+
+
+
+            
+            
+            // zmena pohybu podla direction
+            //////////////////////////////////
+            
+            switch (direction) {
+                case "up":
+                    snake_position_y -= tile_size;
+                    break;
+                case "right":
+                    snake_position_x += tile_size;
+                    break;
+                case "down":
+                    snake_position_y += tile_size;
+                    break;
+                case "left":
+                    snake_position_x -= tile_size;
+                    break;
+            
+                default:
+                    break;
+            }
+
+
+           
+
+
+            ///////
+            // ak vyjdem z mapy
+            //////////////////////////////////
+
+            if(snake_position_x >= canvas.width){
+                snake_position_x = 0;
+            }else if(snake_position_y >= canvas.height){
+                snake_position_y = 0;
+            }else if(snake_position_x < 0){
+                snake_position_x = canvas.width;
+            }else if(snake_position_y < 0){
+                snake_position_y = canvas.height;
+            }
+
+            
+
+        }
+
+        function key(event) {
+
+            //////
+            // zmena direction podla sipky
+            //////////////////////////////////
+            
+            switch (event.key) {
+                case "ArrowUp":
+                    if(direction == "down"){
+                        break;
+                    }
+                    direction = "up";
+                    break;
+                case "ArrowRight":
+                    if(direction == "left"){
+                        break;
+                    }
+                    direction = "right";
+                    break;
+                case "ArrowDown":
+                    if(direction == "up"){
+                        break;
+                    }
+                    direction = "down";
+                    break;
+                case "ArrowLeft":
+                    if(direction == "right"){
+                        break;
+                    }
+                    direction = "left";
+                    break;
+                case "Enter":
+                    if(!game_running){
+                        location.reload()
+                    }
+                
+                default:
+                    break;
+            }
+        }
+
+
+
+        function gameLoop() {
+
+            draw()
+
+            if(game_running){
+                move()
+            }
+
+           
+
+
+            setTimeout(gameLoop,1000 / fps);
+        }
+        gameLoop()
+
+
+
+
+      
+
+        
+    </script>
+</html>
