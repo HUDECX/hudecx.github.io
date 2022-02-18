@@ -109,3 +109,25 @@
         width: 80%;
     }
 }
+
+
+@media only screen and (max-width: 500px){
+    .projectRight{
+        .img{
+            width: 15rem;
+            height: 15rem;
+        }
+    }
+    #learning{
+        padding-bottom: 0;
+    }
+    #portfolio{
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    footer{
+        aside{
+            font-size: .8rem;
+        }
+    }
+}

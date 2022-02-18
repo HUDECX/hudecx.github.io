@@ -29,6 +29,9 @@
     a:hover::after{
         width: 100%;
     }
+    a:active{
+        color: lighten($specialColor, 20%);
+    }
 }
 
 
