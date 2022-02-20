@@ -391,6 +391,7 @@ button{
     height: 17.25rem;
     text-align: center;
     padding: 2rem;
+    background-color: $mainColor;
     h3{
         position: absolute;
         font-size: 0.9rem;
@@ -400,7 +401,9 @@ button{
         left: 50%;
         margin-left: -8.5rem;
     }
-    background-color: $mainColor;
+   .lightText{
+       margin-top: 1rem;
+   }
 }
 
 form{
@@ -461,6 +464,36 @@ footer aside{
     }
 }
 
+#confirmation{
+    text-align: center;
+    display: none;
+    z-index: 99;
+    position: fixed;
+    top: 10rem;
+    right: 10rem;
+    background: rgba(89, 255, 89, 0.8);
+    color: white;
+    padding: 1rem;
+    width: 15rem;
+    font-size: .7rem;
+    border-radius: 10px;
+}
+
+#denied{
+    text-align: center;
+    display: none;
+    z-index: 99;
+    position: fixed;
+    top: 10rem;
+    right: 10rem;
+    background: rgba(255, 0, 0, 0.712);
+    color: white;
+    padding: 1rem;
+    width: 15rem;
+    font-size: .7rem;
+    border-radius: 10px;
+}
+
 
 
 
@@ -477,8 +510,7 @@ footer aside{
     border-radius: 0.3125rem 1.25rem 0.3125rem 1.25rem;
     transition: border-color .4s, color .4s;
     overflow: hidden;
-    &:hover,
-    &:focus{
+    &:hover{
         &::before{
             clip-path: ellipse(100% 1000% at 50px);
         }
@@ -503,7 +535,7 @@ footer aside{
         width: 100%;
         height: 100%;
         clip-path: ellipse(0% 100% at 0);
-        transition: clip-path .2s ease-in-out;
+        transition: clip-path .4s ease;
     }
 }
 
