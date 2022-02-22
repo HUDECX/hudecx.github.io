@@ -35,3 +35,15 @@
 }
 
 
+
+@keyframes appear{
+    from{
+        transform: translateY(3rem);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+

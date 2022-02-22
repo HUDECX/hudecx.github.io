@@ -2,7 +2,10 @@ import * as animations from "./js/animations.js";
 import * as helpers from "./js/helpers.js"
 
 
-const submitForm = $("#submitForm");
+const submitFormButton = $("#submitForm");
+// const form = document.querySelector("#contactForm")
+const appearAnimacia = document.querySelectorAll("section>h2.specialText, #contactForm, .job, .projectRight, .sourcesContainer, .bunky");
+
 
 ////////// hamburger menu while mobile///////////////
 
@@ -12,7 +15,7 @@ animations.hamMenu();
 ///////////////EMAIL///////////////////
 
 
-submitForm.on("click", function(){
+submitFormButton.on("click", function(){
     const email = document.getElementById("email").value;
     const name = document.getElementById("name").value;
     const subject = document.getElementById("subject").value;
@@ -35,9 +38,23 @@ submitForm.on("click", function(){
 })
 
 
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.style.opacity = 0;
+        entry.target.classList.toggle("anim", entry.isIntersecting)
+        if(entry.isIntersecting){
+            observer.unobserve(entry.target)
+        }
+    })
+},{
+    threshold: 0.5
+})
 
+appearAnimacia.forEach(element => {
+    observer.observe(element);
+})
 
-
+observer.observe(form);
 
 
 
