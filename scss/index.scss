@@ -119,6 +119,15 @@ button{
         height: 100vh;
         border-radius: 0 40% 40% 0;
     }
+    &::before{
+        position: absolute;
+        content: "Picture to be placed";
+        top: 50vh;
+        left: 15vw;
+        font-size: 2rem;
+        transform:rotate(45deg);
+        color: $lightBackground;
+    }
 }
 .titleCardCenter{
     position: absolute;
@@ -211,23 +220,6 @@ button{
     align-items: center;
     flex-wrap: wrap;
     padding: 2rem;
-    // &>h2{
-    //     margin-left: -4rem;
-    //     text-align: center;
-    //     width: 100%;
-    //     margin-bottom: 3rem;
-    //     text-indent: 4rem;
-    //     &::before{
-    //     content: "RESUME";
-    //     position: absolute;
-    //     top: 3rem;
-    //     left: 50%;
-    //     margin-left: -18.75rem;
-    //     color: $lightBackground;
-    //     transform: scale(8);
-    //     z-index: -5;
-    //     }
-    // }
     @include specialH2("RESUME");
     &>h2{
         width: 100%;
@@ -282,7 +274,6 @@ button{
     z-index: 99; 
     @include specialH2("SOURCES");
     &>h2{
-        margin-bottom: -1rem;
         z-index: 99;
     }
 }
