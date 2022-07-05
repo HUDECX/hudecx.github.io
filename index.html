@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable= 0">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index.min.css">
+    <link rel="icon" type="image/x-icon" href="/img/logo_priehladne_fix.png">
     <title>RichardHudec</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Unica+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/48a26fd16b.js" crossorigin="anonymous"></script>
@@ -26,7 +27,7 @@
                 <li><a href="#aboutMe">About</a></li>
                 <li><a href="#resume">Resume</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#letsTalk">Contact</a></li>
+                <li><a href="#techIUse">Tech I use</a></li>
             </ul>
         </nav>
         <section id="titleCard">
@@ -52,10 +53,10 @@
                 <ul>
                     <li><span class="specialText">AGE:</span> 21</li>
                     <li><span class="specialText">AVAILABLE:</span> yes</li>
-                    <li><span class="specialText">PHONE:</span> +421 910 195 634</li>
+                    <li><span class="specialText">PHONE: </span> <a href="tel:+421910195634"  style="text-decoration: underline;">+421 910 195 634</a></li>
                     <li><span class="specialText">RESIDENCE:</span> Slovakia</li>
                     <li><span class="specialText">ADDRESS:</span> Bratislava</li>
-                    <li><span class="specialText">E-MAIL:</span> hudec.richard6@gmail.com</li>
+                    <li><span class="specialText">E-MAIL: </span><a href="mailto:hudec.richard6@gmail.com" style="text-decoration: underline;" target="_blank">hudec.richard6@gmail.com</a></li>
                 </ul>
             </section>
         </div>
@@ -85,11 +86,27 @@
         <section id="portfolio">
             <h2 class="specialText">PORTFOLIO</h2>
             <div class="projectRight">
-                <div class="img"></div>
+                <div class="img" style="background-image: url(./img/ezgif.com-gif-maker.gif)"></div>
                 <div class="textBlock">
                     <h2 class="specialText">Snake game</h2>
                     <p>A simple game made with pure JavaScript and one of my first finished projects.</p>
                     <a href="./resources/portfolio/hadik2/index.html" class="button" target="blank">Try me!</a>
+                </div>
+            </div>
+            <div class="projectRight">
+                <div class="img" style="background-image: url(./img/WorkoutTracker.jpg)"></div>
+                <div class="textBlock">
+                    <h2 class="specialText">Workout tracker (not finished)</h2>
+                    <p>This app was made with React, MaterialUI. Database and hosting is provided by Firebase(Firestore). In the future I would like to add more features to it, give it responsiveness and better styling.</p>
+                    <a href="https://workout-tracker-ddfc1.web.app/" class="button" target="blank">Try me!</a>
+                </div>
+            </div>
+            <div class="projectRight">
+                <div class="img" style="background-image: url(./img/cerpadlovo.jpg)"></div>
+                <div class="textBlock">
+                    <h2 class="specialText">cerpadlovo.sk</h2>
+                    <p>This simple page was made with a customised bootstrap template. For forms I used PHP with PHPMailer. I made it during my internship in a software company.</p>
+                    <a href="https://cerpadlovo.sk/" class="button" target="blank">Try me!</a>
                 </div>
             </div>
         </section>
@@ -116,26 +133,31 @@
                 </div>
             </div>
         </section>
-        <section id="letsTalk">
-            <h2 class="specialText">Contact me</h2>
+        <section id="techIUse">
             <div class="sliceDivider">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
                 </svg>
             </div>
-            <form id="contactForm" method="POST" onsubmit="return false">
-                <label class="specialText">Your name / Company
-                    <input type="text" placeholder="" id="name">
-                </label>
-                <label class="specialText">E-MAIL
-                    <input id="email" type="text" name="email" placeholder="example@example.com">
-                </label>
-                <label class="specialText">Subject
-                    <input id="subject" type="text" name="subject" placeholder="What is it about?">
-                </label>
-                <textarea name="message" id="message" cols="127" rows="10" placeholder="Write your message here!"></textarea>
-                <button type="submit" class="button" id="submitForm">Send</button>
-            </form>
+            <h2 class="specialText">What do I use ?</h2>
+            <div class="sourcesContainer">
+                <div class="source">
+                    <img src="./img/technologies/html.png"  alt="">
+                    <p class="specialText">HTML</p>
+                </div>
+                <div class="source">
+                    <img src="./img/technologies/css.png" alt="">
+                    <p class="specialText">CSS/SASS</p>
+                </div>
+                <div class="source">
+                    <img src="./img/technologies/js.png" alt="">
+                    <p class="specialText">Javascript/Jquery</p>
+                </div>
+                <div class="source">
+                    <img src="./img/technologies/react.png" alt="">
+                    <p class="specialText">REACT</p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>

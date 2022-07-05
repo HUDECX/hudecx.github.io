@@ -302,7 +302,6 @@ button{
     }
     img{
         border-radius: 5px;
-        border: 4px solid $mainColor;
         width: 10rem;
     }
 }
@@ -331,10 +330,10 @@ button{
 
 
 
-#letsTalk{
+#techIUse{
     position: relative; 
     z-index: 99;
-    @include specialH2("LETS TALK");
+    @include specialH2("Technologies");
     &>h2{
         margin-bottom: 8rem;
         z-index: 99;
@@ -358,7 +357,6 @@ button{
     .img{
         position: relative;
         margin-right: 3rem;
-        background-image: url(../img/ezgif.com-gif-maker.gif);
         background-size: cover;
         width: 20rem;
         height: 20rem;
@@ -396,6 +394,7 @@ button{
        margin-top: 1rem;
    }
 }
+
 
 form{
     width: 50%;
